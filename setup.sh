@@ -181,19 +181,19 @@ install_dependencies() {
     case $PKG_MANAGER in
         apt)
             apt update -qq
-            apt install -y wget tar hwloc libhwloc-dev ca-certificates 2>/dev/null || \
-            apt install -y wget tar hwloc ca-certificates 2>/dev/null || true
+            apt install -y wget tar libuv1 libssl3 hwloc libudev1 libhwloc-dev ca-certificates 2>/dev/null || \
+            apt install -y wget tar libuv1 libssl3 hwloc libudev1 ca-certificates 2>/dev/null || true
             ;;
         dnf)
-            dnf install -y wget tar hwloc-libs 2>/dev/null || \
-            yum install -y wget tar hwloc-libs 2>/dev/null || true
+            dnf install -y wget tar libuv1 libssl3 hwloc libudev1 2>/dev/null || \
+            yum install -y wget tar libuv1 libssl3 hwloc libudev1 2>/dev/null || true
             ;;
         pacman)
-            pacman -Sy --noconfirm wget tar hwloc 2>/dev/null || true
+            pacman -Sy --noconfirm wget tar libuv1 libssl3 hwloc libudev1 2>/dev/null || true
             ;;
         pkg)
             pkg update -y
-            pkg install -y wget tar 2>/dev/null || true
+            pkg install -y wget tar libuv1 libssl3 hwloc libudev1 2>/dev/null || true
             ;;
     esac
     
