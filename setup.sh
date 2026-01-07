@@ -211,17 +211,17 @@ install_xmrig() {
     # Determine download URL
     case $ARCH_TYPE in
         x64)
-            XMRIG_FILE="xmrig-${XMRIG_MO_VERSION}-linux-static-x64.tar.gz"
+            XMRIG_FILE="xmrig-v6.25.0-mo1-lin64.tar.gz"
             ;;
         arm64)
-            XMRIG_FILE="xmrig-${XMRIG_MO_VERSION}-linux-static-arm64.tar.gz"
+            XMRIG_FILE="xmrig-v6.25.0-mo1-lin64.tar.gz"
             ;;
         armv7)
-            XMRIG_FILE="xmrig-${XMRIG_MO_VERSION}-linux-static-armv7l.tar.gz"
+            XMRIG_FILE="xmrig-v6.25.0-mo1-lin64.tar.gz"
             ;;
     esac
     
-    DOWNLOAD_URL="https://github.com/MoneroOcean/xmrig/releases/download/v${XMRIG_MO_VERSION}/${XMRIG_FILE}"
+    DOWNLOAD_URL="https://github.com/MoneroOcean/xmrig/releases/download/${XMRIG_FILE}"
     
     # Download with retry
     for i in {1..3}; do
@@ -235,8 +235,8 @@ install_xmrig() {
     # Extract
     echo "[3/5] Extracting..."
     tar -xzf "$XMRIG_FILE" 2>/dev/null || tar -xf "$XMRIG_FILE"
-    cp xmrig-${XMRIG_MO_VERSION}/* . 2>/dev/null || true
-    rm -rf xmrig-${XMRIG_MO_VERSION} "$XMRIG_FILE"
+    cp xmrig-v6.25.0-mo1-lin64.tar.gz/* . 2>/dev/null || true
+    rm -rf xmrig-v6.25.0-mo1-lin64.tar.gz "$XMRIG_FILE"
     chmod +x xmrig
     
     echo "✓ XMRig installed to $INSTALL_DIR"
