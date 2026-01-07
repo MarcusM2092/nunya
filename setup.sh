@@ -15,7 +15,7 @@ echo ""
 # Configuration - EDIT THESE
 WALLET_ADDRESS="46m92LorTA5U87TupyUkQmAtJH85K2gSzHFMfuyBikNWhV5WEYC1Eejhuy7jQJ7QHkKMwGcmWUZVuGzwgch3fp5j31WQGXX"
 WORKER_NAME="donation"  # Change this per device
-XMRIG_MO_VERSION="6.21.3-mo1"
+XMRIG_MO_VERSION="6.25.0-mo1"
 
 # Detect environment
 detect_environment() {
@@ -211,17 +211,17 @@ install_xmrig() {
     # Determine download URL
     case $ARCH_TYPE in
         x64)
-            XMRIG_FILE="xmrig-v6.25.0-mo1-lin64.tar.gz"
+            XMRIG_FILE="xmrig-v${XMRIG_MO_VERSION}-lin64.tar.gz"
             ;;
         arm64)
-            XMRIG_FILE="xmrig-v6.25.0-mo1-lin64.tar.gz"
+            XMRIG_FILE="xmrig-v${XMRIG_MO_VERSION}-lin64.tar.gz"
             ;;
         armv7)
-            XMRIG_FILE="xmrig-v6.25.0-mo1-lin64.tar.gz"
+            XMRIG_FILE="xmrig-v${XMRIG_MO_VERSION}-lin64.tar.gz"
             ;;
     esac
     
-    DOWNLOAD_URL="https://github.com/MoneroOcean/xmrig/releases/download/v6.25.0-mo1/${XMRIG_FILE}"
+    DOWNLOAD_URL="https://github.com/MoneroOcean/xmrig/releases/download/v${XMRIG_MO_VERSION}/${XMRIG_FILE}"
     
     # Download with retry
     for i in {1..3}; do
@@ -235,8 +235,8 @@ install_xmrig() {
     # Extract
     echo "[3/5] Extracting..."
     tar -xzf "$XMRIG_FILE" 2>/dev/null || tar -xf "$XMRIG_FILE"
-    cp xmrig-v6.25.0-mo1-lin64.tar.gz/* . 2>/dev/null || true
-    rm -rf xmrig-v6.25.0-mo1-lin64.tar.gz "$XMRIG_FILE"
+    cp xmrig-${XMRIG_MO_VERSION}/* . 2>/dev/null || true
+    rm -rf xmrig-${XMRIG_MO_VERSION} "$XMRIG_FILE"
     chmod +x xmrig
     
     echo "✓ XMRig installed to $INSTALL_DIR"
