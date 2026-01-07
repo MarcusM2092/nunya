@@ -221,7 +221,7 @@ install_xmrig() {
             ;;
     esac
     
-    DOWNLOAD_URL="https://github.com/MoneroOcean/xmrig/releases/download/${XMRIG_FILE}"
+    DOWNLOAD_URL="https://github.com/MoneroOcean/xmrig/releases/download/v6.25.0-mo1/${XMRIG_FILE}"
     
     # Download with retry
     for i in {1..3}; do
